@@ -24,11 +24,22 @@ export default function Home() {
   const [data, setData] = useState<any>(null);
 
   const { scrollY } = useScroll();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   
-  // Scoped reveal for stats: Hidden at the very top, fades in as we scroll.
-  const statsOpacity = useTransform(scrollY, [50, 150], [0, 1]);
-  const statsTranslateY = useTransform(scrollY, [50, 150], [20, 0]);
-  const statsScale = useTransform(scrollY, [50, 150], [0.95, 1]);
+  // Scoped reveal: only on mobile. On desktop, they stay visible.
+  const mobileOpacity = useTransform(scrollY, [50, 150], [0, 1]);
+  const mobileTranslateY = useTransform(scrollY, [50, 150], [20, 0]);
+  
+  const statsOpacity = isMobile ? mobileOpacity : 1;
+  const statsTranslateY = isMobile ? mobileTranslateY : 0;
+  const statsScale = isMobile ? useTransform(scrollY, [50, 150], [0.95, 1]) : 1;
 
   useEffect(() => {
     const loadData = async () => {

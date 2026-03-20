@@ -16,6 +16,9 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "SHIELD | Advanced Threat Intelligence",
   description: "Enterprise-grade cybersecurity incident reporting and analysis dashboard.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({

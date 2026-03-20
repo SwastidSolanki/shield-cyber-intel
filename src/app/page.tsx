@@ -33,13 +33,15 @@ export default function Home() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   
-  // Scoped reveal: only on mobile. On desktop, they stay visible.
-  const mobileOpacity = useTransform(scrollY, [50, 150], [0, 1]);
-  const mobileTranslateY = useTransform(scrollY, [50, 150], [20, 0]);
-  
-  const statsOpacity = isMobile ? mobileOpacity : 1;
-  const statsTranslateY = isMobile ? mobileTranslateY : 0;
-  const statsScale = isMobile ? useTransform(scrollY, [50, 150], [0.95, 1]) : 1;
+  // Define transforms unconditionally to follow Rules of Hooks
+  const scrollOpacity = useTransform(scrollY, [50, 150], [0, 1]);
+  const scrollTranslateY = useTransform(scrollY, [50, 150], [20, 0]);
+  const scrollScale = useTransform(scrollY, [50, 150], [0.95, 1]);
+
+  // Determine actual values based on device type (client-side only)
+  const statsOpacity = isMobile ? scrollOpacity : 1;
+  const statsTranslateY = isMobile ? scrollTranslateY : 0;
+  const statsScale = isMobile ? scrollScale : 1;
 
   useEffect(() => {
     const loadData = async () => {

@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyber-green: #00ff41;
+  --color-cyber-dark-green: #004d0f;
+  --color-cyber-black: #050a06;
+  --color-cyber-card: #0a110b;
+  --color-cyber-surface: #0a110b;
+  --color-cyber-accent-red: #ff3333;
+  --color-cyber-accent-amber: #ffaa00;
+  
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --cyber-green: #00ff41;
+  --cyber-dark-green: #004d0f;
+  --cyber-black: #050a06;
+  --cyber-surface: #0a110b;
+  --cyber-accent-amber: #ffaa00;
+  
+  /* Standard CSS Gradient - No oklch */
+  --bg-gradient: radial-gradient(circle at 50% 0%, rgb(13, 43, 24) 0%, rgb(5, 10, 6) 100%);
+}
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #e0e0e0;
+  --cyber-green: #00ff41;
+  --cyber-dark-green: #004d0f;
+  --bg-primary: #050a06;
+  --bg-secondary: #0a110b;
+  --bg-tertiary: #111111;
+  --accent-red: #ff3333;
+  --accent-amber: #ffaa00;
+  --text-primary: #e0e0e0;
+}
+
+body {
+  background: #050a06;
+  background: radial-gradient(circle at 50% -20%, #0d2b18 0%, #050a06 100%);
+  color: #e0e0e0;
+  font-family: "Space Grotesk", sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050a06;
+}
+::-webkit-scrollbar-thumb {
+  background: #004d0f;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff41;
+}
+
+/* Glitch Effect */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch-text::before {
+  color: #00ffff;
+  z-index: -1;
+  animation: glitch-anim 0.3s infinite;
+}
+
+.glitch-text::after {
+  color: #ff00ff;
+  z-index: -2;
+  animation: glitch-anim 0.3s infinite reverse;
+}
+
+@keyframes glitch-anim {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* Scanline Effect */
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 255, 65, 0.1);
+  opacity: 0.5;
+  z-index: 1000;
+  pointer-events: none;
+  animation: scanline-move 8s linear infinite;
+}
+
+/* Glassmorphism Panels */
+.cyber-panel {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.cyber-panel:hover {
+  border-color: rgba(0, 255, 65, 0.3);
+  background: rgba(21, 21, 21, 0.8);
+}
+
+.bg-calm-green {
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+}
+
+.hero-gradient {
+  background: linear-gradient(180deg, rgba(0, 255, 65, 0.05) 0%, transparent 100%);
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes scanline-move {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+.animate-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}

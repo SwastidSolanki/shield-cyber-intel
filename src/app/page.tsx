@@ -15,12 +15,20 @@ import ThreatAreaChart from '@/components/Dashboard/ThreatAreaChart';
 import VulnerabilityRoots from '@/components/Dashboard/VulnerabilityRoots';
 import DefenseTips from '@/components/Dashboard/DefenseTips';
 import { ExternalLink, Users } from 'lucide-react';
+import { useScroll, useTransform, motion } from 'framer-motion';
 import gsap from 'gsap';
 
 export default function Home() {
+  const mainRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<any>(null);
-  const mainRef = useRef<HTMLDivElement>(null);
+
+  const { scrollY } = useScroll();
+  
+  // Scoped reveal for stats: Hidden at the very top, fades in as we scroll.
+  const statsOpacity = useTransform(scrollY, [50, 150], [0, 1]);
+  const statsTranslateY = useTransform(scrollY, [50, 150], [20, 0]);
+  const statsScale = useTransform(scrollY, [50, 150], [0.95, 1]);
 
   useEffect(() => {
     const loadData = async () => {
@@ -97,8 +105,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Dashboard Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Dashboard Stats - Conditional Reveal on Scroll */}
+      <motion.div 
+        style={{ opacity: statsOpacity, y: statsTranslateY, scale: statsScale }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+      >
         <div className="reveal-item">
           <StatCard label="Total Intelligence Signals" value={highLevelStats.totalSignals} trend="up" icon={<Shield size={24} />} />
         </div>
@@ -111,7 +122,7 @@ export default function Home() {
         <div className="reveal-item">
           <StatCard label="Impacted User Base" value={highLevelStats.usersAffected} trend="up" icon={<Users size={24} />} />
         </div>
-      </div>
+      </motion.div>
 
       {/* Dataset Attribution */}
       <div className="reveal-item flex items-center gap-4 py-4 px-6 cyber-panel rounded-xl border-cyber-green/20 bg-cyber-green/5 w-fit">

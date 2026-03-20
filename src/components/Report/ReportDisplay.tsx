@@ -61,26 +61,26 @@ const ReportDisplay: React.FC<ReportDisplayProps> = ({ report }) => {
          </div>
       </div>
 
-      {/* Header Bar - Live Display */}
+      {/* Header Bar - Static Flow */}
       <div 
         className={cn(
-            "flex justify-between items-center sticky top-24 z-40 py-4 px-2 border-b border-white/5 bg-cyber-black/80 backdrop-blur-md transition-all",
+            "flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 py-8 px-4 border-b border-white/5 bg-transparent transition-all",
             isCapturing && "opacity-50 pointer-events-none"
         )}
       >
         <div className="flex items-center gap-4">
-          <div className="p-2.5 bg-cyber-green/10 text-cyber-green rounded-lg border border-cyber-green/20">
+          <div className="p-2.5 bg-cyber-green/10 text-cyber-green rounded-lg border border-cyber-green/20 shrink-0">
             <Shield size={22} />
           </div>
           <div>
-            <h2 className="text-2xl font-sans font-bold text-white tracking-tight leading-none mb-1">Incident Analysis Report</h2>
+            <h2 className="text-xl md:text-2xl font-sans font-bold text-white tracking-tight leading-tight mb-1">Incident Analysis Report</h2>
             <p className="text-[10px] font-mono text-white/40 uppercase tracking-widest">REF: {report.id} // {report.timestamp}</p>
           </div>
         </div>
         <button 
           onClick={handleDownload}
           disabled={isCapturing}
-          className="flex items-center gap-2 px-6 py-2.5 bg-cyber-green text-cyber-black hover:bg-white transition-all rounded-lg font-sans font-bold text-xs shadow-lg disabled:opacity-50"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-cyber-green text-cyber-black hover:bg-white transition-all rounded-lg font-sans font-bold text-xs shadow-lg disabled:opacity-50 active:scale-95"
         >
           {isCapturing ? <Loader2 className="animate-spin" size={16} /> : <Download size={16} />}
           {isCapturing ? "PREPARING PDF..." : "EXPORT SUMMARY (PDF)"}

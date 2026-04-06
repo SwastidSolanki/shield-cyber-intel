@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Shield, Activity, Zap, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Shield, Activity, Zap, ArrowRight, ExternalLink, Users } from 'lucide-react';
 import StatCard from '@/components/Dashboard/StatCard';
 import AttackBarChart from '@/components/Dashboard/AttackBarChart';
 import SeverityDoughnut from '@/components/Dashboard/SeverityDoughnut';
@@ -14,9 +14,9 @@ import AttackRadarChart from '@/components/Dashboard/AttackRadarChart';
 import ThreatAreaChart from '@/components/Dashboard/ThreatAreaChart';
 import VulnerabilityRoots from '@/components/Dashboard/VulnerabilityRoots';
 import DefenseTips from '@/components/Dashboard/DefenseTips';
-import { ExternalLink, Users } from 'lucide-react';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import gsap from 'gsap';
+import TextDecoder from '@/components/Effects/TextDecoder';
 
 export default function Home() {
   const mainRef = useRef<HTMLDivElement>(null);
@@ -58,18 +58,13 @@ export default function Home() {
         const tl = gsap.timeline();
 
         // Hero Animation
-        tl.from(".hero-line-1", {
-          y: 40,
-          opacity: 0,
-          duration: 1,
-          ease: "power4.out"
-        })
-          .from(".hero-line-2", {
+        tl.from(".hero-line-2", {
             y: 30,
             opacity: 0,
             duration: 0.8,
-            ease: "power3.out"
-          }, "-=0.6")
+            ease: "power3.out",
+            delay: 0.5
+          })
           .from(".hero-cta", {
             scale: 0.9,
             opacity: 0,
@@ -94,24 +89,35 @@ export default function Home() {
   if (loading) return <CyberLoader />;
 
   return (
-    <div ref={mainRef} className="space-y-16 pb-24 px-4 overflow-x-hidden">
+    <div ref={mainRef} className="space-y-24 pb-24 px-4 overflow-x-hidden relative">
       {/* Hero Section */}
-      <section className="pt-12 max-w-4xl">
-        <div className="space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-green/5 border border-cyber-green/10 text-cyber-green text-[10px] font-mono tracking-widest uppercase">
-            <Activity size={12} /> Live Threat Intelligence Engine
-          </div>
-          <h1 className="hero-line-1 text-5xl md:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-            SHIELD: Guarding What Matters Most  <span className="text-cyber-green italic">Relentlessly</span>.
+      <section className="pt-16 max-w-5xl relative z-10">
+        <div className="space-y-8">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyber-green/5 border border-cyber-green/20 text-cyber-green text-[10px] font-mono tracking-[0.3em] uppercase glow-border"
+          >
+            <Activity size={14} className="animate-pulse" /> Live Threat Intelligence Engine
+          </motion.div>
+          
+          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-white leading-[0.95]">
+            <TextDecoder text="SHIELD: GUARDING" className="block" />
+            <span className="text-cyber-green italic">
+              <TextDecoder text="WHAT MATTERS MOST" delay={500} />
+            </span>
           </h1>
-          <p className="hero-line-2 text-lg md:text-xl text-white/40 font-sans max-w-2xl leading-relaxed">
-            The standard in automated threat telemetry and ISO-compliant analysis. Monitor, analyze, and neutralize threats with SHIELD.
+          
+          <p className="hero-line-2 text-xl md:text-2xl text-white/40 font-sans max-w-2xl leading-relaxed">
+            The global standard in automated threat telemetry and ISO-compliant logic. Monitor, analyze, and neutralize with <span className="text-white/80">SHIELD Engine v4.0</span>.
           </p>
-          <div className="hero-cta pt-4 flex flex-wrap gap-4">
+
+          <div className="hero-cta pt-6 flex flex-wrap gap-6">
             <Link href="/report">
-              <button className="flex items-center gap-3 px-8 py-4 bg-cyber-green text-cyber-black font-bold rounded-lg hover:bg-white transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-cyber-green/20 text-sm">
-                <Shield size={20} />
+              <button className="group relative flex items-center gap-4 px-10 py-5 bg-cyber-green text-cyber-black font-black rounded-xl hover:bg-white transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(0,255,65,0.3)] text-sm tracking-widest uppercase">
+                <Shield size={22} />
                 START INCIDENT AUDIT
+                <div className="absolute inset-0 rounded-xl border-2 border-cyber-green scale-110 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300" />
               </button>
             </Link>
           </div>
@@ -157,6 +163,9 @@ export default function Home() {
         </div>
         <div className="reveal-item">
           <AttackRadarChart />
+        </div>
+        <div className="reveal-item">
+          <AttackRadarChart /> {/* Using Radar as second chart as per original grid intent or variety */}
         </div>
         <div className="reveal-item">
           <ThreatAreaChart />

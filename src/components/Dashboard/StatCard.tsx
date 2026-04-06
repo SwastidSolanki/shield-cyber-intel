@@ -36,41 +36,55 @@ const StatCard: React.FC<StatCardProps> = ({ label, value, trend, icon }) => {
   }, [numericValue, suffix]);
 
   return (
-    <div className="cyber-panel p-6 rounded-lg transition-all duration-300">
-      <div className="flex justify-between items-start mb-4">
-        <div className="p-2.5 bg-cyber-green/5 border border-cyber-green/10 rounded-lg text-cyber-green">
+    <div className="cyber-panel p-6 rounded-xl transition-all duration-500 group relative overflow-hidden">
+      {/* Decorative Corner */}
+      <div className="absolute top-0 right-0 w-8 h-8 opacity-20 group-hover:opacity-100 transition-opacity pointer-events-none">
+        <div className="absolute top-0 right-0 w-px h-4 bg-cyber-green" />
+        <div className="absolute top-0 right-0 w-4 h-px bg-cyber-green" />
+      </div>
+
+      <div className="flex justify-between items-start mb-4 relative z-10">
+        <div className="p-3 bg-cyber-green/5 border border-cyber-green/10 rounded-xl text-cyber-green group-hover:shadow-[0_0_15px_rgba(0,255,65,0.2)] transition-all duration-500">
           {icon}
         </div>
         <div className={cn(
-          "flex items-center gap-1 text-[10px] font-mono font-medium px-2 py-0.5 rounded-full",
-          trend === 'up' ? "bg-red-500/10 text-red-400" : 
-          trend === 'down' ? "bg-cyber-green/10 text-cyber-green" : 
-          "bg-white/5 text-white/40"
+          "flex items-center gap-1.5 text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border",
+          trend === 'up' ? "bg-red-500/10 text-red-400 border-red-500/20" : 
+          trend === 'down' ? "bg-cyber-green/10 text-cyber-green border-cyber-green/20" : 
+          "bg-white/5 text-white/40 border-white/10"
         )}>
-          {trend === 'up' ? <ArrowUpRight size={12} /> : 
-           trend === 'down' ? <ArrowDownRight size={12} /> : 
+          {trend === 'up' ? <ArrowUpRight size={12} className="animate-pulse" /> : 
+           trend === 'down' ? <ArrowDownRight size={12} className="animate-pulse" /> : 
            <Minus size={12} />}
-          {trend === 'up' ? 'HIGH' : trend === 'down' ? 'LOW' : 'STABLE'}
+          {trend === 'up' ? 'CRITICAL' : trend === 'down' ? 'REDUCED' : 'NOMINAL'}
         </div>
       </div>
       
-      <div className="space-y-1">
-        <p className="text-[10px] font-display font-semibold text-white/40 uppercase tracking-[0.15em]">{label}</p>
+      <div className="space-y-1 relative z-10">
+        <p className="text-[10px] font-mono text-white/30 uppercase tracking-[0.2em]">{label}</p>
         <div className="flex items-baseline gap-1">
-          <span ref={valueRef} className="text-3xl font-mono font-bold text-white tracking-tight">0</span>
+          <span ref={valueRef} className="text-4xl font-mono font-bold text-white tracking-tighter group-hover:glow-text-green transition-all duration-500">0</span>
         </div>
       </div>
 
-      <div className="mt-4 h-1 w-full bg-white/5 rounded-full overflow-hidden">
+      <div className="mt-6 h-1 w-full bg-white/5 rounded-full overflow-hidden relative z-10">
         <motion.div 
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1.5, ease: "circOut" }}
+          initial={{ width: 0 }}
+          animate={{ width: "100%" }}
+          transition={{ duration: 2, ease: "circOut" }}
           className={cn(
-            "h-full origin-left",
+            "h-full origin-left relative",
             trend === 'up' ? "bg-red-500/40" : trend === 'down' ? "bg-cyber-green/40" : "bg-white/20"
           )}
-        />
+        >
+          {/* Scanning light effect on the progress bar */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent w-20 animate-[scanline_2s_linear_infinite]" />
+        </motion.div>
+      </div>
+      
+      {/* Subtle bottom-right label */}
+      <div className="absolute bottom-2 right-3 opacity-[0.03] font-mono text-[8px] uppercase tracking-widest pointer-events-none group-hover:opacity-10 transition-opacity">
+        Shield_Intel_v2.0
       </div>
     </div>
   );

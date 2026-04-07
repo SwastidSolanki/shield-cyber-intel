@@ -104,7 +104,7 @@ export default function Home() {
           <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-white leading-[0.95]">
             <TextDecoder text="SHIELD: GUARDING" className="block" />
             <span className="text-cyber-green italic">
-              <TextDecoder text="WHAT MATTERS MOST" delay={500} />
+              <TextDecoder text="WHAT MATTERS MOST" />
             </span>
           </h1>
           

@@ -34,8 +34,8 @@ export default function TextDecoder({ text, className = "", delay = 0 }: TextDec
           clearInterval(interval);
         }
 
-        setIteration((prev) => prev + 1 / 3);
-      }, 30);
+        setIteration((prev) => prev + 0.5);
+      }, 20);
     }, delay);
 
     return () => {

@@ -71,7 +71,7 @@ const StatCard: React.FC<StatCardProps> = ({ label, value, trend, icon }) => {
         <motion.div 
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
-          transition={{ duration: 2, ease: "circOut" }}
+          transition={{ duration: 0.8, ease: "circOut" }}
           className={cn(
             "h-full origin-left relative",
             trend === 'up' ? "bg-red-500/40" : trend === 'down' ? "bg-cyber-green/40" : "bg-white/20"

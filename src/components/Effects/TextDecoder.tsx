@@ -8,7 +8,7 @@ interface TextDecoderProps {
   delay?: number;
 }
 
-const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#%&*<>?/[]{}|~_";
 
 export default function TextDecoder({ text, className = "", delay = 0 }: TextDecoderProps) {
   const [displayText, setDisplayText] = useState("");

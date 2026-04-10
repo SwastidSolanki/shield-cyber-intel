@@ -43,6 +43,17 @@ export default function RootLayout({
           <main className="flex-grow pt-40 md:pt-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
             {children}
           </main>
+          
+          {/* Status Indicator */}
+          <div className="fixed top-6 right-6 z-50 hidden md:flex items-center gap-3 px-4 py-2 rounded-full bg-cyber-black/80 border border-cyber-green/20 backdrop-blur-md">
+            <div className="relative">
+              <div className="w-2 h-2 rounded-full bg-cyber-green animate-pulse" />
+              <div className="absolute inset-0 w-2 h-2 rounded-full bg-cyber-green animate-ping opacity-75" />
+            </div>
+            <span className="text-[10px] text-cyber-green font-mono font-bold uppercase tracking-[0.2em]">
+              System Active
+            </span>
+          </div>
         </div>
         
         {/* Global ambient glow */}

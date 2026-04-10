@@ -184,3 +184,14 @@ body {
   opacity: 0;
   transform: translateY(30px);
 }
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #050a06;
+}
+::-webkit-scrollbar-thumb {
+  background: #00ff41;
+  border-radius: 10px;
+}

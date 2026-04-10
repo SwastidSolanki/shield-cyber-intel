@@ -44,7 +44,7 @@ const StatCard: React.FC<StatCardProps> = ({ label, value, trend, icon }) => {
       </div>
 
       <div className="flex justify-between items-start mb-4 relative z-10">
-        <div className="p-3 bg-cyber-green/5 border border-cyber-green/10 rounded-xl text-cyber-green group-hover:shadow-[0_0_15px_rgba(0,255,65,0.2)] transition-all duration-500">
+        <div className="p-3 bg-cyber-green/5 border border-cyber-green/10 rounded-xl text-cyber-green group-hover:shadow-[0_0_15px_rgba(0,255,65,0.2)] group-hover:rotate-[360deg] transition-all duration-700">
           {icon}
         </div>
         <div className={cn(

@@ -108,9 +108,15 @@ export default function Home() {
             </span>
           </h1>
           
-          <p className="hero-line-2 text-xl md:text-2xl text-white/40 font-sans max-w-2xl leading-relaxed">
-            The global standard in automated threat telemetry and ISO-compliant logic. Monitor, analyze, and neutralize with <span className="text-white/80">SHIELD Engine v4.0</span>.
-          </p>
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 1 }}
+            className="text-white/40 text-lg md:text-xl font-medium tracking-wide max-w-3xl leading-relaxed"
+          >
+            The global standard in automated threat telemetry and 
+            <span className="text-white ml-2">real-time response synthesis.</span>
+          </motion.p>
 
           <div className="hero-cta pt-6 flex flex-wrap gap-6">
             <Link href="/report">

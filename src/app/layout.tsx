@@ -20,6 +20,17 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
   },
+  openGraph: {
+    title: "SHIELD | Advanced Threat Intelligence",
+    description: "Enterprise-grade cybersecurity incident reporting and analysis dashboard.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SHIELD | Advanced Threat Intelligence",
+    description: "Enterprise-grade cybersecurity incident reporting and analysis dashboard.",
+  },
 };
 
 export default function RootLayout({

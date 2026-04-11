@@ -101,7 +101,7 @@ export default function Home() {
             <Activity size={14} className="animate-pulse" /> Live Threat Intelligence Engine
           </motion.div>
           
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-white leading-[0.95]">
+          <h1 className="text-6xl md:text-8xl font-bold tracking-[-0.05em] text-white leading-[0.95]">
             <TextDecoder text="SHIELD: GUARDING" className="block" />
             <span className="text-cyber-green italic">
               <TextDecoder text="WHAT MATTERS MOST" />

@@ -13,6 +13,15 @@ interface StatCardProps {
   icon: React.ReactNode;
 }
 
+/**
+ * StatCard component for displaying high-level security metrics with 
+ * interactive hover effects, trend indicators, and animated progress bars.
+ * 
+ * @param label - The label for the metric
+ * @param value - The numeric value to display
+ * @param trend - 'up', 'down', or 'stable' to dictate styling and context
+ * @param icon - Lucide icon component to display
+ */
 const StatCard: React.FC<StatCardProps> = ({ label, value, trend, icon }) => {
   const valueRef = useRef<HTMLSpanElement>(null);
   const numericValue = parseFloat(value.replace(/[^0-9.]/g, ''));

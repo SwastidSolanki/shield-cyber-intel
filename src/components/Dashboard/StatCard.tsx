@@ -47,7 +47,9 @@ const StatCard: React.FC<StatCardProps> = ({ label, value, trend, icon }) => {
         <div className="p-3 bg-cyber-green/5 border border-cyber-green/10 rounded-xl text-cyber-green group-hover:shadow-[0_0_15px_rgba(0,255,65,0.2)] group-hover:rotate-[360deg] transition-all duration-700">
           {icon}
         </div>
-        <div className={cn(
+        <div 
+          aria-label={`Security trend: ${trend === 'up' ? 'Critical increase' : trend === 'down' ? 'Controlled reduction' : 'Nominal stable'}`}
+          className={cn(
           "flex items-center gap-1.5 text-[10px] font-mono font-bold px-2.5 py-1 rounded-md border",
           trend === 'up' ? "bg-red-500/10 text-red-400 border-red-500/20" : 
           trend === 'down' ? "bg-cyber-green/10 text-cyber-green border-cyber-green/20" : 

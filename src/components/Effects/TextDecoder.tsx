@@ -18,17 +18,19 @@ export default function TextDecoder({ text, className = "", delay = 0 }: TextDec
     let interval: NodeJS.Timeout;
     const startTimeout = setTimeout(() => {
       interval = setInterval(() => {
-        setDisplayText((prev) => {
-          return text
-            .split("")
-            .map((char, index) => {
-              if (index < iteration) {
-                return text[index];
-              }
-              return characters[Math.floor(Math.random() * characters.length)];
-            })
-            .join("");
-        });
+        let res = "";
+        for (let i = 0; i < text.length; i++) {
+          if (i < iteration) {
+            res += text[i];
+          } else {
+            // Early phase (lower iteration) uses more symbols
+            const currentSymbolSet = iteration < text.length / 2 
+              ? characters.slice(text.length / 2) // favor symbols
+              : characters;
+            res += currentSymbolSet[Math.floor(Math.random() * currentSymbolSet.length)];
+          }
+        }
+        setDisplayText(res);
 
         if (iteration >= text.length) {
           clearInterval(interval);

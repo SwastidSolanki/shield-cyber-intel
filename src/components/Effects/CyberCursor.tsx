@@ -12,7 +12,7 @@ export default function CyberCursor() {
   const mouseY = useMotionValue(-100);
 
   // Springs for that "trailing" effect
-  const springConfig = { damping: 25, stiffness: 150 };
+  const springConfig = { damping: 28, stiffness: 180 };
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
 

@@ -37,7 +37,7 @@ export default function TextDecoder({ text, className = "", delay = 0 }: TextDec
         }
 
         setIteration((prev) => prev + 0.5);
-      }, 20);
+      }, 15);
     }, delay);
 
     return () => {

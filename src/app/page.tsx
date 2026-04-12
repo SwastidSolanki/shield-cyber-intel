@@ -112,7 +112,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
-            className="text-white/40 text-lg md:text-xl font-medium tracking-wide max-w-3xl leading-relaxed"
+            className="text-white/40 text-lg md:text-xl font-semibold tracking-wide max-w-3xl leading-relaxed"
           >
             The global standard in automated threat telemetry and 
             <span className="text-white ml-2">real-time response synthesis.</span>

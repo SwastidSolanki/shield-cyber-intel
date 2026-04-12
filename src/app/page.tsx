@@ -114,8 +114,8 @@ export default function Home() {
             transition={{ delay: 0.8, duration: 1 }}
             className="text-white/40 text-lg md:text-xl font-semibold tracking-wide max-w-3xl leading-relaxed"
           >
-            The global standard in automated threat telemetry and 
-            <span className="text-white ml-2">real-time response synthesis.</span>
+            Advanced neural-link telemetry for enterprise-grade 
+            <span className="text-white ml-2">automated threat neutralization.</span>
           </motion.p>
 
           <div className="hero-cta pt-6 flex flex-wrap gap-6">

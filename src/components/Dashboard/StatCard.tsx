@@ -45,7 +45,7 @@ const StatCard: React.FC<StatCardProps> = ({ label, value, trend, icon }) => {
   }, [numericValue, suffix]);
 
   return (
-    <div className="cyber-panel p-6 rounded-xl transition-all duration-500 group relative overflow-hidden">
+    <div className="cyber-panel p-6 rounded-xl transition-all duration-300 group relative overflow-hidden">
       {/* Decorative Corner */}
       <div className="absolute top-0 right-0 w-8 h-8 opacity-20 group-hover:opacity-100 transition-opacity pointer-events-none">
         <div className="absolute top-0 right-0 w-px h-4 bg-cyber-green" />

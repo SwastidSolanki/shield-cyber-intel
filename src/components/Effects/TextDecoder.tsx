@@ -10,6 +10,14 @@ interface TextDecoderProps {
 
 const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#%&*<>?/[]{}|~_";
 
+/**
+ * TextDecoder component: A high-tech 'hacker' style text reveal effect 
+ * that progressively decrypts random characters into the final string.
+ * 
+ * @param text - The final string to reveal
+ * @param className - Optional Tailwind CSS class names
+ * @param delay - Milliseconds to wait before starting the animation
+ */
 export default function TextDecoder({ text, className = "", delay = 0 }: TextDecoderProps) {
   const [displayText, setDisplayText] = useState("");
   const [iteration, setIteration] = useState(0);

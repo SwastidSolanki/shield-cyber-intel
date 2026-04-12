@@ -120,7 +120,7 @@ export default function Home() {
 
           <div className="hero-cta pt-6 flex flex-wrap gap-6">
             <Link href="/report">
-              <button className="group relative flex items-center gap-4 px-10 py-5 bg-cyber-green text-cyber-black font-black rounded-xl hover:bg-white transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(0,255,65,0.3)] text-sm tracking-widest uppercase">
+              <button className="group relative flex items-center gap-4 px-10 py-5 bg-cyber-green text-cyber-black font-black rounded-xl border border-cyber-green/30 hover:bg-white transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(0,255,65,0.3)] text-sm tracking-widest uppercase">
                 <Shield size={22} />
                 START INCIDENT AUDIT
                 <div className="absolute inset-0 rounded-xl border-2 border-cyber-green scale-110 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300" />

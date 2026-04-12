@@ -114,6 +114,7 @@ body {
   opacity: 0.3;
   z-index: 1000;
   pointer-events: none;
+  will-change: transform;
   animation: scanline-move 8s linear infinite;
 }
 

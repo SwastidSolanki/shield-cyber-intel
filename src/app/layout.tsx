@@ -15,13 +15,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SHIELD | Advanced Threat Intelligence",
+  title: "SHIELD | Advanced AI Threat Intelligence & Neural Defense",
   description: "Enterprise-grade cybersecurity incident reporting and analysis dashboard.",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "SHIELD | Advanced Threat Intelligence",
+    title: "SHIELD | Advanced AI Threat Intelligence & Neural Defense",
     description: "Enterprise-grade cybersecurity incident reporting and analysis dashboard.",
     type: "website",
     locale: "en_US",

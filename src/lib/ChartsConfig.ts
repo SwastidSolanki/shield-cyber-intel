@@ -95,7 +95,7 @@ export const chartDefaults = {
 
 export const cyberColors = {
   primary: '#00ff41',
-  primaryMuted: 'rgba(0, 255, 65, 0.15)',
+  primaryMuted: 'rgba(0, 255, 65, 0.2)',
   accentRed: '#ff3333',
   accentAmber: '#ffaa00',
   surface: '#0a110b',

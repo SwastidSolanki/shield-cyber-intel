@@ -60,7 +60,10 @@ const Header: React.FC = () => {
                 </Link>
 
                 <div className="flex items-center justify-between md:justify-end gap-3 md:gap-8 flex-1">
-                    <div className="flex items-center gap-3 px-4 py-2 bg-cyber-green/5 border border-cyber-green/20 rounded-lg group hover:bg-cyber-green/10 transition-colors">
+                    <div 
+                        aria-label="System Encryption Status"
+                        className="flex items-center gap-3 px-4 py-2 bg-cyber-green/5 border border-cyber-green/20 rounded-lg group hover:bg-cyber-green/10 transition-colors"
+                    >
                         <div className="relative">
                             <Shield size={18} className="text-cyber-green" />
                             <div className="absolute inset-0 bg-cyber-green/20 blur-md animate-pulse rounded-full" />
@@ -71,7 +74,10 @@ const Header: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-3 px-4 py-2 bg-cyber-accent-amber/5 border border-cyber-accent-amber/20 rounded-lg group hover:bg-cyber-accent-amber/10 transition-colors">
+                    <div 
+                        aria-label="System Defense Posture"
+                        className="flex items-center gap-3 px-4 py-2 bg-cyber-accent-amber/5 border border-cyber-accent-amber/20 rounded-lg group hover:bg-cyber-accent-amber/10 transition-colors"
+                    >
                         <div className="relative">
                             <Zap size={18} className="text-cyber-accent-amber animate-[pulse_1s_infinite]" />
                             <div className="absolute inset-0 bg-cyber-accent-amber/20 blur-md rounded-full" />
